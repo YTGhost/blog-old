@@ -1,0 +1,71 @@
+stages: # 分段
+  - install
+  - build
+  - update
+  - deploy
+
+cache: # 缓存
+  paths:
+    - node_modules
+    - public
+
+Install-Job: # 拉取依赖
+  tags:
+    - blog
+  stage: install
+  script:
+    - npm install
+  only:
+    - master
+  allow_failure: false
+
+Build-Job: # 编译
+  tags:
+    - blog
+  stage: build
+  script:
+    - sed -i 's/{applicationID}/'$applicationID'/g' _config.yml
+    - sed -i 's/{apiKey}/'$apiKey'/g' _config.yml
+    - sed -i 's/{adminApiKey}/'$adminApiKey'/g' _config.yml
+    - sed -i 's/{indexName}/'$indexName'/g' _config.yml
+    - hexo deploy
+    - mv ./public ./blog
+  only:
+    - master
+  allow_failure: false
+  artifacts:
+    name: bundle
+    paths:
+      - blog/
+
+Update-Algolia-Job: # 更新Algolia
+  tags:
+    - blog
+  stage: update
+  script:
+    - export HEXO_ALGOLIA_INDEXING_KEY=$HEXO_ALGOLIA_INDEXING_KEY
+    - hexo algolia
+  only:
+    - master
+  allow_failure: false
+  
+Update-Github-Job: # 更新Github
+  tags:
+    - blog
+  stage: update
+  script:
+    - git remote add github git@github.com:YTGhost/blog.git
+    - git push github master
+  only:
+    - master
+  allow_failure: false
+
+deploy-job: # 部署
+  tags:
+    - blog
+  stage: deploy
+  script:
+    - scp -r ./blog $CUSTOM_USERNAME@$CUSTOM_IP:/home
+  only:
+    - master
+  allow_failure: false
