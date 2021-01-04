@@ -207,10 +207,10 @@ addThis:
 
 # Comments System
 # ---------------
-disqus:
-  enable: false
-  #shortname:
-  #count:
+# disqus:
+# enable: false
+# shortname:
+# count:
 
 # laibili:
 # enable: false
@@ -223,13 +223,13 @@ disqus:
 # client_id:
 # client_secret:
 
-# gitalk:
-#   enable: true
-#   client_id:
-#   client_secret:
-#   repo:
-#   owner:
-#   admin:
+gitalk:
+  enable: true
+  client_id: {client_id}
+  client_secret: {client_secret}
+  repo: blog
+  owner: YTGhost
+  admin: YTGhost
 
 # valine comment system. https://valine.js.org
 # valine:

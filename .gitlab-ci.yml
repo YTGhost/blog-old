@@ -24,6 +24,8 @@ Build-Job: # 编译
     - blog
   stage: build
   script:
+    - sed -i 's/{client_id}/'$client_id'/g' _config.melody.yml
+    - sed -i 's/{client_secret}/'$client_secret'/g' _config.melody.yml
     - sed -i 's/{applicationID}/'$applicationID'/g' _config.yml
     - sed -i 's/{apiKey}/'$apiKey'/g' _config.yml
     - sed -i 's/{adminApiKey}/'$adminApiKey'/g' _config.yml
