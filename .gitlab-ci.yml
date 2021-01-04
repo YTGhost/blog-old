@@ -43,6 +43,10 @@ Update-Algolia-Job: # 更新Algolia
     - blog
   stage: update
   script:
+    - sed -i 's/{applicationID}/'$applicationID'/g' _config.yml
+    - sed -i 's/{apiKey}/'$apiKey'/g' _config.yml
+    - sed -i 's/{adminApiKey}/'$adminApiKey'/g' _config.yml
+    - sed -i 's/{indexName}/'$indexName'/g' _config.yml
     - export HEXO_ALGOLIA_INDEXING_KEY=$HEXO_ALGOLIA_INDEXING_KEY
     - hexo algolia
   only:
@@ -54,6 +58,8 @@ Update-Github-Job: # 更新Github
     - blog
   stage: update
   script:
+    - git config user.name "YTGhost"
+    - git config user.email "283304489@qq.com"
     - git remote add github git@github.com:YTGhost/blog.git
     - git push github master
   only:
