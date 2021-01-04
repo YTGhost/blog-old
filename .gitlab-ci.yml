@@ -60,6 +60,7 @@ Update-Github-Job: # 更新Github
   script:
     - git config user.name "YTGhost"
     - git config user.email "283304489@qq.com"
+    - git remote -v
     - git remote add github git@github.com:YTGhost/blog.git
     - git push github master
   only:
