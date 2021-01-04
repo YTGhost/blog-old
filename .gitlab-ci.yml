@@ -62,7 +62,7 @@ Update-Github-Job: # 更新Github
   script:
     - git config user.name "YTGhost"
     - git config user.email "283304489@qq.com"
-    - git checkout -b master
+    - git checkout -B master
     - git push github master
   only:
     - master
