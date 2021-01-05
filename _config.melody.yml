@@ -18,7 +18,7 @@
 # Main menu navigation
 menu:
   Home: /
-  # Archives: /archives
+  Archives: /archives
   Tags: /tags
   Categories: /categories
   #XXX: /xxx
@@ -261,11 +261,11 @@ gitalk:
 # ---------------
 since: 2019
 
-# footer_custom_text: put custom text directly or put hitokoto to fetch random texts
+footer_custom_text: <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备20010727号</a>
 
 ICP:
-  enable: true
-  text: 京ICP备20010727号
+  enable: false
+  text: 
 
 # busuanzi count for PV / UV in site
 busuanzi:
