@@ -35,10 +35,26 @@ Docker的一些基操~
 | 启动     | `docker start container-name/container-id`                   | 启动容器                                                     |
 | 删除     | `docker rm container-id`                                     | 删除指定容器                                                 |
 | 端口映射 | `-p 6379:6379`<br />eg:`docker run -d -p 6379:6379 --name myredis docker.io/redis` | -p：主机端口（映射到）容器内部的端口                         |
-| 容器日志 | `docker logs container-name/container-id`                    |                                                              |
+| 容器日志 | `docker logs container-name/container-id`
+| 进入容器 | `sudo docker exec -it <id> /bin/bash`
 
-## 安装mysql
 
-- `docker pull mysql`
+## 常用容器安装
+### 安装mysql
 
-- `docker run -d -p 6380:3306 --name mysql01 -e MYSQL_ROOT_PASSWORD=my-secret-pw mysql:tag`
+```shell
+#拉取镜像
+docker pull mysql
+# 运行
+docker run -d -p 6380:3306 --name mysql01 -e MYSQL_ROOT_PASSWORD=my-secret-pw mysql:tag
+```
+
+### 安装redis
+```shell
+# 拉取镜像
+docker pull redis
+# 运行
+docker run -d --name myredis -p 6379:6379 redis --requirepass "mypassword"
+# 使用redis-cli连接命令， -h 服务器地址 -p 端口号 -a 密码
+redis-cli -h host -p port -a password
+```
