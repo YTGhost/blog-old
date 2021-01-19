@@ -15,13 +15,15 @@ categories:
 
 ## 支持wpy
 window下：`File` - `Settings` - `Editor` - `File Types`，进行添加
+
 ![](https://image.hihia.top/Screenshot/20210119193818.png)
 
 ## 高亮config和wxs标签
 `Namespace`用`http://www.w3.org/1999/html`
+
 ![](https://image.hihia.top/Screenshot/20210119194725.png)
-<img src="https://image.hihia.top/Screenshot/20210119194906.png" alt="image-20210119194906933" style="zoom: 67%;" />
-<img src="https://image.hihia.top/Screenshot/20210119195000.png" alt="image-20210119195000575" style="zoom:67%;" />
+<img src="https://image.hihia.top/Screenshot/20210119194906.png" alt="" style="zoom: 67%;" />
+<img src="https://image.hihia.top/Screenshot/20210119195000.png" alt="" style="zoom:67%;" />
 
 ## 安装插件
 ![](https://image.hihia.top/Screenshot/20210119210140.png)
