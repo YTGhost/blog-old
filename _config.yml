@@ -112,3 +112,13 @@ algolia:
   adminApiKey: '{adminApiKey}'
   indexName: '{indexName}'
   chunkSize: 5000
+
+# kramed
+kramed:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
